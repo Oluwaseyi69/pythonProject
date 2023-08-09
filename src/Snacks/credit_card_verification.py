@@ -20,23 +20,27 @@ elif re.match(discover_card, card_number):
     print("**Credit card type: Discover card")
 card_number = ''.join(filter(str.isdigit, card_number))
 print("**Credit card number: ", card_number)
-if 13 <= len(card_number) <= 16:
+if '13' >= card_number <= '16':
     print("**Credit Card Length:", len(card_number))
+elif len(card_number) <13:
+    print('nil')
+elif len(card_number) > 16:
+    print("card number too long", len(card_number))
 else:
-    print("input a valid: ")
+    print("input a valid details: ")
 
 
-is_second = False
+is_double = False
 total = 0
 reversed_digits = card_number[::-1]
 for y in reversed_digits:
     digit = int(y)
-    if is_second:
+    if is_double:
         digit *= 2
         if digit > 9:
             digit -= 9
     total += digit
-    is_second = not is_second
+    is_double = not is_double
 
 if total % 10 == 0:
     print("**Credit card Validity Status: Valid")
