@@ -30,22 +30,26 @@ class GeoZones(Enum):
         SOUTH_SOUTH = "Akwa-Ibom", "Bayelsa", "Cross-River", "Delta", "Edo", "Rivers",
         SOUTH_WEST=  "Ekiti", "Lagos", " Osun", "Ondo", "Ogun", "Oyo"
 def user_choice():
-    user_input = input("Enter a state: ")
+    try:
+        user_input = input("Enter a state: ")
 
-    if user_input.capitalize() in GeoZones.SOUTH_WEST.value:
-        print("SOUTH WEST")
-    elif user_input.capitalize() in GeoZones.SOUTH_SOUTH.value:
-        print("SOUTH SOUTH")
-    elif user_input.capitalize() in GeoZones.SOUTH_EAST.value:
-        print("SOUTH EAST")
-    elif user_input.capitalize() in GeoZones.NORTH_WEST.value:
-        print("NORTH WEST")
-    elif user_input.capitalize() in GeoZones.NORTH_CENTRAL.value:
-        print("NORTH CENTRAL")
-    elif user_input.capitalize() in GeoZones.NORTH_EAST.value:
-        print("NORTH EAST")
-    else:
-        print("Invalid state")
-        user_choice()
+        if user_input.capitalize() in GeoZones.SOUTH_WEST.value:
+            print("SOUTH WEST")
+        elif user_input.capitalize() in GeoZones.SOUTH_SOUTH.value:
+            print("SOUTH SOUTH")
+        elif user_input.capitalize() in GeoZones.SOUTH_EAST.value:
+            print("SOUTH EAST")
+        elif user_input.capitalize() in GeoZones.NORTH_WEST.value:
+            print("NORTH WEST")
+        elif user_input.capitalize() in GeoZones.NORTH_CENTRAL.value:
+            print("NORTH CENTRAL")
+        elif user_input.capitalize() in GeoZones.NORTH_EAST.value:
+            print("NORTH EAST")
+        else:
+            print("Invalid state")
+            user_choice()
+    except(ValueError, KeyboardInterrupt, SyntaxError, TypeError, TabError, ZeroDivisionError):
+            print("Enter a valid input")
+            user_choice()
 
 user_choice()

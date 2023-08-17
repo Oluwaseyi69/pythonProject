@@ -2,6 +2,7 @@
 def two_list(first_list, second_list) -> tuple:
 
     new_list = [x for x in first_list if x in second_list]
+    # new_list = [for x in first_list and second_list if x
 
     return tuple(set(new_list))
 
