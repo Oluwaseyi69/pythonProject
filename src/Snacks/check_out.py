@@ -2,7 +2,7 @@ import re
 
 import datetime as datetime
 
-storeName = "SEMICOLON STORE"
+storeName ="SEMICOLON STORE"
 Branch = "MAIN BRANCH"
 Address = "312, HERBERT MACAULAY WAY, SABO YABA, LAGOS STATE."
 number = "+2348345689034"
@@ -23,7 +23,7 @@ def customer_name_entry():
     global customerName
     name = input("What is customer name: ")
     if re.search("^(?!$)\D+$",name):
-        customerName == name
+        var = customerName == name
         list_of_items()
 
     else:
@@ -82,7 +82,7 @@ def cashier_details():
     global cashierDetails
     details = input("What is your name: ")
     if re.search("^(?!$)\D+$", details):
-        cashierDetails == details
+        var = cashierDetails == details
         discount()
     else:
         print("Invalid Entry")
@@ -90,10 +90,12 @@ def cashier_details():
 
 def discount():
     global discountInput
-    discounted = int(input("How much discount will the customer get?"))
-    if discounted.isdigit() == discountInput:
-
+    discounted = int(input("How much discount will the customer get? "))
+    if discounted >=0 or discounted <= 100:
         save_details()
+    else:
+        print("Enter value between 1 and 100")
+        discount()
 
 def save_details():
     global cashierDetails
@@ -105,7 +107,7 @@ def save_details():
 
 def receiptHead():
     global discountInput, totalProductNumber
-    print(f"""\n{"=" *  60}\n\t ITEM \tQTY      PRICE \t\tTOTAL(NGN)\n{"-" * 60}""")
+    print(f"""\n{"=" *  60}\n\t ITEM \tQTY    PRICE \t\tTOTAL(NGN)\n{"-" * 60}""")
     num = 0
     subTotal = 0.0
 
@@ -117,7 +119,7 @@ def receiptHead():
     for row in range(len(product)):
         print(f"""
         {product[row]:<10}{productNumber[row]:10}{productNumberAmount[row]:<14.2f} {totalProductNumber[row]:<14.2f}""")
-        newDiscount = subTotal * (discountInput/100)
+        newDiscount = subTotal * (discounted/100)
         vat = subTotal * 0.175
         bill = subTotal + vat - newDiscount
 

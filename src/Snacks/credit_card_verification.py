@@ -1,18 +1,24 @@
 import struct
 
-card_number = input("Enter card number: ")
-print("**Credit Card Number: ", card_number)
+
+card_number = ""
 
 def card_length():
+    global card_number
     try:
-        if card_number >= '13' or card_number <= '16':
+        card_number_entered = int(input("Enter card number: "))
+        print("**Credit Card Number: ", card_number_entered)
+
+        card_number = str(card_number_entered)
+
+        if len(card_number) >= 13 or len(card_number) <= 16:
             print("**Credit Card Length:", len(card_number))
             card_type()
         else:
             card_length()
-    except(ValueError, KeyboardInterrupt, SyntaxError, TypeError, TabError, ZeroDivisionError, RecursionError):
-            # print("Enter a valid number")
-            card_length()
+    except (ValueError, KeyboardInterrupt, SyntaxError, TypeError, ZeroDivisionError, RecursionError):
+        print("Invalid Input, Try Again")
+        card_length()
 
 
 
@@ -32,7 +38,7 @@ def card_type():
             card_validity()
         else:
             card_type()
-    except(ValueError, KeyboardInterrupt, SyntaxError, TypeError, TabError, ZeroDivisionError, RecursionError):
+    except (ValueError, KeyboardInterrupt, SyntaxError, TypeError, ZeroDivisionError, RecursionError):
         # print("Enter a valid number")
         card_type()
 
@@ -55,7 +61,7 @@ def card_validity():
             print("**Credit card Validity Status: Valid")
         else:
             print("**Credit card Validity Status: invalid")
-    except(ValueError, KeyboardInterrupt, SyntaxError, TypeError, TabError, ZeroDivisionError):
+    except (ValueError, KeyboardInterrupt, SyntaxError, TypeError, ZeroDivisionError):
         card_validity()
 
 
