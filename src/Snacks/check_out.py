@@ -1,20 +1,22 @@
 import re
 
 import datetime as datetime
+import time
 
 storeName ="SEMICOLON STORE"
 Branch = "MAIN BRANCH"
 Address = "312, HERBERT MACAULAY WAY, SABO YABA, LAGOS STATE."
 number = "+2348345689034"
-datetime = datetime.datetime.now
-customerName = " "
+time = time.strftime("%Y/%M/D")
+customerName = []
 product = []
 productNumber = []
 productNumberAmount = []
 totalProductNumber = []
-moreItems = " "
-discountInput = 0
-cashierDetails = " "
+moreItems = []
+discountInput = []
+cashierDetails = []
+discounted = []
 
 
 
@@ -90,6 +92,7 @@ def cashier_details():
 
 def discount():
     global discountInput
+    global discounted
     discounted = int(input("How much discount will the customer get? "))
     if discounted >=0 or discounted <= 100:
         save_details()
@@ -101,7 +104,7 @@ def save_details():
     global cashierDetails
     global customerName
 
-    print(f"\n {storeName}\n{Branch}\nLocation: {Address}\n Tel: {number}\nDate: {datetime}\ncashier: {cashierDetails}\n Customer Name: {customerName} ")
+    print(f"\n {storeName}\n{Branch}\nLocation: {Address}\n Tel: {number}\nDate: {time}\ncashier: {cashierDetails}\n Customer Name: {customerName} ")
     receiptHead()
 
 
@@ -126,6 +129,10 @@ def receiptHead():
         print(f"""{"-" * 60} \n\t\t\t\t Sub Total: {subTotal:.2f} \n\t\t\t\t Discount:{newDiscount:.2f}\n\t\t\t\t VAT @17.50: {vat:.2f} 
         \n{"=" * 60}\n\t\t\t\t Bill Total: {bill:.2f}\n{"=" *60 }\n\t THIS IS NOT A RECEIPT KINDLY PAY {bill:.2f}\n{"=" * 60}
         """)
+
+def amount_paid():
+    amount = int(input("How much did the customer pay? "))
+
 
 
 

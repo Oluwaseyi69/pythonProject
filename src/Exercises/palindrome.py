@@ -1,5 +1,5 @@
-def is_palindrome(string):
+def word(string):
     return string == string[:: -1]
 
 
-print(is_palindrome("11211"))
+print(word("madam"))
