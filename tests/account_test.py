@@ -1,6 +1,6 @@
 import unittest
 
-from LearnPyTest.account import *
+from LearnPyTest.account import Account
 
 
 

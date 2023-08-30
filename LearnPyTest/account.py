@@ -1,5 +1,3 @@
-from tests.account_test import validate_pin
-from account import *
 
 
 class Account:

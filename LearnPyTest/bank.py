@@ -1,6 +1,5 @@
 import random
 from LearnPyTest.account import Account
-from LearnPyTest.account import Bank
 
 
 class Bank:

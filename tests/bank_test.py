@@ -1,8 +1,6 @@
 import unittest
 import tests as test
-
 from LearnPyTest.bank import Bank
-
 
 
 class TestBank(unittest.TestCase):
