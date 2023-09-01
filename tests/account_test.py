@@ -12,7 +12,6 @@ class TestAccount(unittest.TestCase):
     def setUp(self) -> None:
         self.account = Account("1","seyi","temitope")
     def test_that_account_exist(self):
-        self.account = Account("1","seyi","temitope")
         self.assertIsNotNone(self.account)
 
     def test_that_amount_can_be_deposited(self):
