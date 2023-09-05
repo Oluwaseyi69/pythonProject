@@ -9,17 +9,21 @@ class Diary:
         # self.body = None
         # self.title = None
         # self.id = None
-        self.__is_locked = False
+        # self.is_locked = True
+        # self.__is_locked = True
         self.username = username
         self.password = password
         self.__list_of_entries = []
 
+    def lock_diary(self):
+        var = self.is_locked == True
+
 
     def is_locked(self):
-        return self.is_locked()
+        return self.is_locked
 
-    def lock_diary(self):
-        pass
+    # def lock_diary(self):
+    #     pass
 
     def unlocked_diary(self, password):
         self.validate_password(password)
@@ -30,7 +34,7 @@ class Diary:
         else:
             raise ValueError ("Input correct information")
 
-    def create_new_entry(self, id, title, body):
+    def create_new_entry(self, __generate_id, title, body):
         entry = Entry(self.__generate_id(), title, body)
         self.__list_of_entries.append(entry)
 
@@ -43,6 +47,17 @@ class Diary:
 
     def __generate_id(self):
         return len(self.__list_of_entries) + 1
+
+    def delete_entry(self, id):
+        entry = self.find_entry_by_id(id)
+        self.__list_of_entries.remove(entry)
+
+    def get_userName(self):
+        return self.username
+
+
+
+
 
 
 
