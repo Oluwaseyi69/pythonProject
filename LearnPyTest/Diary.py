@@ -6,18 +6,12 @@ from LearnPyTest.entry import Entry
 
 class Diary:
     def __init__(self, username, password):
-        # self.body = None
-        # self.title = None
-        # self.id = None
-        # self.is_locked = True
-        # self.__is_locked = True
         self.username = username
         self.password = password
         self.__list_of_entries = []
 
     def lock_diary(self):
         var = self.is_locked == True
-
 
     def is_locked(self):
         return self.is_locked
@@ -32,12 +26,11 @@ class Diary:
         if self.password == password:
             return
         else:
-            raise ValueError ("Input correct information")
+            raise ValueError("Input correct information")
 
-    def create_new_entry(self, __generate_id, title, body):
+    def create_new_entry(self, title, body):
         entry = Entry(self.__generate_id(), title, body)
         self.__list_of_entries.append(entry)
-
 
     def find_entry_by_id(self, id):
         for entry in self.__list_of_entries:
@@ -52,12 +45,5 @@ class Diary:
         entry = self.find_entry_by_id(id)
         self.__list_of_entries.remove(entry)
 
-    def get_userName(self):
+    def get_username(self):
         return self.username
-
-
-
-
-
-
-
