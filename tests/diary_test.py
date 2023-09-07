@@ -3,7 +3,6 @@ import unittest
 from LearnPyTest.Diary import Diary
 
 
-
 class TestDiary(unittest.TestCase):
     def setUp(self) -> None:
         self.diary = Diary("Seyi", "1234")
@@ -20,19 +19,26 @@ class TestDiary(unittest.TestCase):
         self.assertTrue(self.diary.is_locked())
 
     def test_that_diary_can_be_created(self):
-        self.diary.create_new_entry(1,"My thoughts", "My thoughts are with me")
-        self.assertEquals("1 My thoughts My thoughts are with me",self.diary.find_entry_by_id(1).get_entry())
+        self.diary.create_new_entry("My thoughts", "My thoughts are with me")
+        self.assertEquals("1 My thoughts My thoughts are with me", self.diary.find_entry_by_id(1).get_entry())
 
     def test_that_diary_can_be_found(self):
-        self.diary.create_new_entry(1, "My thoughts", "My thoughts are with God")
+        self.diary.create_new_entry("My thoughts", "My thoughts are with God")
         self.diary.find_entry_by_id(1)
         self.assertTrue("1 My thoughts, My thoughts are with God")
 
     def test_that_entry_can_be_deleted(self):
-        self.diary.create_new_entry(1, "My thoughts", "My thoughts are with God")
-        self.assertEquals("1 My thoughts My thoughts are with God",self.diary.find_entry_by_id(1).get_entry())
+        self.diary.create_new_entry("My thoughts", "My thoughts are with God")
+        self.assertEquals("1 My thoughts My thoughts are with God", self.diary.find_entry_by_id(1).get_entry())
         self.diary.delete_entry(1)
-        self.assertRaises(ValueError,self.diary.find_entry_by_id, 1)
+        self.assertRaises(ValueError, self.diary.find_entry_by_id, 1)
+
+    def test_that_entry_can_be_updated(self):
+        self.diary.create_new_entry("My thoughts", "My thoughts are with God")
+        self.diary.update_diary(1, "My thoughts is God", "My thoughts are with the most high")
+        self.assertEqual("My thoughts is God", self.diary.find_entry_by_id(1).get_title())
+        self.assertEqual("My thoughts are with the most high", self.diary.find_entry_by_id(1).get_body())
+
 
 if __name__ == '__main__':
     unittest.main()
