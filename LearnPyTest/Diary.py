@@ -6,6 +6,8 @@ from LearnPyTest.entry import Entry
 
 class Diary:
     def __init__(self, username, password):
+
+        # self.updated_entry = None
         self.username = username
         self.password = password
         self.__list_of_entries = []
@@ -15,9 +17,6 @@ class Diary:
 
     def is_locked(self):
         return self.is_locked
-
-    # def lock_diary(self):
-    #     pass
 
     def unlocked_diary(self, password):
         self.validate_password(password)
@@ -47,3 +46,14 @@ class Diary:
 
     def get_username(self):
         return self.username
+
+    def update_diary(self, entry_id, title, body):
+        entry = self.find_entry_by_id(entry_id)
+        entry.set_title(title)
+        entry.set_body(body)
+
+    # def update_entry(self, ids, title, body):
+    #     entry = self.can_find_entry(ids)
+    #     entry.set_id(ids)
+    #     entry.set_title(title)
+    #     entry.set_body(body)

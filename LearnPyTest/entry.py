@@ -12,10 +12,10 @@ class Entry:
     def id (self, __id):
         self.id = __id
 
-    def body(self, body):
+    def set_body(self, body):
         self.__body = body
 
-    def title(self, title):
+    def set_title(self, title):
         self.__title = title
 
     def get_entry(self):
@@ -24,3 +24,8 @@ class Entry:
     def get_id(self):
         return self.__id
 
+    def get_title(self):
+        return self.__title
+
+    def get_body(self):
+        return self.__body
