@@ -1,5 +1,4 @@
 from LearnPyTest.Diaries import *
-
 diaries = Diaries()
 stored_username = ""
 
@@ -7,6 +6,7 @@ stored_username = ""
 def main():
     welcome()
     new_account()
+    # login()
 
 
 def welcome():
@@ -31,8 +31,11 @@ def new_account():
         # loading_successful()
     elif user_input == "2":
         login()
+
+    elif user_input == "3":
+        exit()
     else:
-        print("Invalid Entry")
+        print("You Inputted an Invalid Entry")
         new_account()
 
 
@@ -68,7 +71,7 @@ def options():
             4) Find Entry
             5) Main Menu
             """)
-    user_input = input("enter your preferred option")
+    user_input = input("enter your preferred option: ")
     if user_input == "1":
         add_entry()
     elif user_input == '2':
@@ -89,8 +92,10 @@ def add_entry():
         title = input("Enter the title: ")
         body = input("Enter the content: ")
 
-        diaries.find_by_username(stored_username) \
+        diaries.find_by_username(stored_username)\
             .create_new_entry(title, body)
+        print("Your input is saved successfully")
+        options()
     except ValueError as error:
         print(error)
         add_entry()
@@ -99,34 +104,24 @@ def add_entry():
 def deleting_entry():
     try:
         entry_id = int(input("Enter Entry id: "))
-
-        diaries.find_by_username(stored_username).delete_entry(entry_id)
+        diaries.find_by_username(stored_username)\
+            .delete_entry(entry_id)
+        print("Entry Deleted")
     except ValueError as error:
         print(error)
         deleting_entry()
 
-# def update
 
+def updating_entry():
+    try:
 
-# def loading_successful():
-#     print(">")
-#     time.sleep(3)
-#     print("Saved successfully")
+        entry_id = int(input("Enter Entry id: "))
+        new_updated_entry = input("Kindly update entry")
+        diary.find_entry_by_id(entry_id).update_diary(new_updated_entry)
+    except ValueError as error:
+        print(error)
+        updating_entry()
 
-# try:
-#
-#     username = input("Kindly Enter your Name: ""\n")
-#     password = input("Kindly Input your password: ")
-#     confirm_password = input("Kindly re-enter your password: ""\n")
-#     if password == confirm_password:
-#         print("you diary account opening is in process, Now you can proceed in creating memories")
-#         main()
-#
-#     else:
-#         print("password must match ")
-#         create_account()
-#
-# except: IncorrectCredentialException("Enter a correct details")
 
 if __name__ == '__main__':
     main()
