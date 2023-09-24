@@ -1,5 +1,3 @@
-
-
 class Account:
     balance = 0
     accountNumber = None
@@ -18,42 +16,28 @@ class Account:
             self.balance += amount
         return self.balance
 
+    def getBalance(self, pin):
+        self.validate_pin(pin)
+        return self.balance
+        # else:
+        #     raise ValueError("deposit a valid amount")
 
-    def getBalance(self,pin):
-        if self.pin == pin:
-            return self.balance
-        else:
-            raise ValueError("deposit a valid amount")
-
-
-    def withdraw(self, amount):
+    def withdraw(self, amount, pin):
+        self.validate_pin(pin)
         if self.balance < amount:
-            raise ValueError("Withdrawal impossible, Enter a valid amount")
-
+            raise ValueError("Insufficient Fund")
         else:
             self.balance -= amount
         return self.balance
 
-    def withdraw_less(self, amount):
-        if self.balance > amount:
-            raise ValueError("impossible")
-        else:
-            self.balance -= amount
-            return self.balance
-
-    def update_pin(self, oldPin,newPin):
-        if self.pin == oldPin:
-            self.pin = newPin
-            return newPin
-
-        else:
-            raise TypeError ("Enter a different pin")
-
-    def validate_pin(self):
-        if self.pin != self.pin:
+    def validate_pin(self, pin):
+        if self.pin != pin:
             raise ValueError("Enter the correct pin")
-        else:
-            return self.pin
+
+    def update_pin(self, oldPin, newPin):
+        self.validate_pin(oldPin)
+        self.pin = newPin
+        return newPin
 
     def get_account(self) -> str:
         return self.accountName

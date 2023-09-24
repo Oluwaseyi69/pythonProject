@@ -1,3 +1,5 @@
+import sqlite3
+
 from LearnPyTest.Diaries import *
 diaries = Diaries()
 stored_username = ""
@@ -94,7 +96,7 @@ def add_entry():
 
         diaries.find_by_username(stored_username)\
             .create_new_entry(title, body)
-        print("Your input is saved successfully")
+        print("Your Entry is saved successfully")
         options()
     except ValueError as error:
         print(error)
@@ -107,6 +109,7 @@ def deleting_entry():
         diaries.find_by_username(stored_username)\
             .delete_entry(entry_id)
         print("Entry Deleted")
+        options()
     except ValueError as error:
         print(error)
         deleting_entry()
