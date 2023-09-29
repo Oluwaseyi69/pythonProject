@@ -44,6 +44,7 @@ def new_account():
 def create_account():
     username = input("kindly Enter your name: ""\n")
     password = input("Kindly Enter your password: ""\n")
+    # confirm_password = input("Re-enter your password: ""\n")
     diaries.add_diary(username, password)
 
     print("Account Created Successfully")
@@ -55,7 +56,7 @@ def login():
     try:
         print("Log in")
         username = input("Enter your username: ")
-        password = input("Enter username and password: ")
+        password = input("Enter and password: ")
         stored_username = username
         diaries.find_by_username(username).validate_password(password)
         options()
