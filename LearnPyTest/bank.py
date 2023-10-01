@@ -10,21 +10,13 @@ class Bank:
 
     def register(self, firstName, lastName, pin):
         format_name = f"{firstName} {lastName}"
-        account = Account(self.get_account_number(), format_name, pin)
+        account = Account(self.__generate_account_number(), format_name, pin)
         self.__list_of_accounts.append(account)
         return account
 
-    # def __generate_account_number(self):
-    #     # self.bank_name
-    #     account_number = ''
-    #     for account_number in range(10):
-    #         number = random.randint(0, 9)
-    #         str(account_number) + str(number)
-    #     return account_number
-
     def find_account(self, account_number):
         for account in self.__list_of_accounts:
-            if account.get_account_number() == account_number:
+            if account.validate_account_number(account_number) == account_number:
                 return account
 
             else:
@@ -39,5 +31,5 @@ class Bank:
     def to_withdraw(self, account_number, amount, pin):
         return self.find_account(account_number).withdraw(amount, pin)
 
-    def get_account_number(self):
+    def __generate_account_number(self):
         return len(self.__list_of_accounts) + 1

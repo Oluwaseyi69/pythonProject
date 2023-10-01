@@ -3,8 +3,8 @@ import unittest
 from LearnPyTest.account import Account
 
 
-def validate_pin():
-    pass
+# def validate_pin():
+#     pass
 
 
 class TestAccount(unittest.TestCase):

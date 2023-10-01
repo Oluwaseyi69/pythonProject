@@ -31,8 +31,10 @@ class Account:
         return self.balance
 
     def validate_pin(self, pin):
-        if self.pin != pin:
-            raise ValueError("Enter the correct pin")
+        if self.pin == pin:
+            return self.balance
+        # else:
+        #     raise ValueError("Enter the correct pin")
 
     def update_pin(self, oldPin, newPin):
         self.validate_pin(oldPin)
@@ -45,5 +47,12 @@ class Account:
     def get_account_name(self):
         return self.accountName
 
-    def get_account_number(self):
+    def get_account_number(self, account_number):
+        self.validate_account_number(account_number)
         return self.accountNumber
+
+    def validate_account_number(self, account_number):
+        if self.accountNumber != account_number:
+            raise ValueError("Enter the correct Account Number")
+        else:
+            return self.accountNumber

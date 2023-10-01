@@ -1,5 +1,5 @@
 import unittest
-import tests as test
+# import tests as test
 from LearnPyTest.bank import Bank
 
 
@@ -10,7 +10,8 @@ class TestBank(unittest.TestCase):
     def testThatBankCanRegisterAccount(self):
         bank = Bank("First Bank", "pin")
         acct = bank.register("Seyi", "Banwo", "pin")
-        # print(acct.accountNumber)
+        self.assertEqual(acct, bank.find_account(acct.get_account_number(1)))
+        self.assertEqual(1, acct.get_account_number(1))
         self.assertIsNotNone(acct)
 
     def test_to_deposit_money(self):
