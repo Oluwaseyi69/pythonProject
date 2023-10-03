@@ -33,3 +33,12 @@ class Bank:
 
     def __generate_account_number(self):
         return len(self.__list_of_accounts) + 1
+
+    def list_of_account(self):
+        return "the number of account is: ", len(self.__list_of_accounts)
+        #  account_num = ''.join([str(random.randint(0, 9)) for _ in range(10)])
+        #             return account_num
+
+    # def transfer(self, sender_account_number, receiver_account_number, amount, pin ):
+    #     self.find_account(sender_account_number).withdraw(amount, pin)
+    #     self.find_account(receiver_account_number).deposit(amount)

@@ -47,8 +47,8 @@ class Account:
     def get_account_name(self):
         return self.accountName
 
-    def get_account_number(self, account_number):
-        self.validate_account_number(account_number)
+    def get_account_number(self):
+        # self.validate_account_number(account_number)
         return self.accountNumber
 
     def validate_account_number(self, account_number):
@@ -56,3 +56,6 @@ class Account:
             raise ValueError("Enter the correct Account Number")
         else:
             return self.accountNumber
+
+    def get_account_details(self):
+        return self.accountName + " " + self.accountNumber + " " + self.get_account_number()

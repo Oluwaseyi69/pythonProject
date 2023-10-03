@@ -2,8 +2,6 @@ no_of_student = 0
 sum = 0
 counter = 0
 
-
-
 while True:
     counter = counter + 1
     score = int(input("Enter a score or -25 to end: "))
@@ -23,15 +21,14 @@ while True:
     else:
         sum = sum + score
         average = sum / counter
-#for i in range(1, 2):
-    #for j in range(1, 6):
-        #print(f"{i}, {j}")
+# for i in range(1, 2):
+# for j in range(1, 6):
+# print(f"{i}, {j}")
 
 
 # for number in range(1, 11):
 #
 #     print(5 ** number, end=", ")
-
 
 
 # number = 5

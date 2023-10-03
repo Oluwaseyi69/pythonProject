@@ -57,6 +57,7 @@ def email_validator():
 
     return valid
 
+
 if __name__ == '__main__':
     valid = email_validator()
 

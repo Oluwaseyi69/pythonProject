@@ -1,5 +1,6 @@
 import re
 
+
 # password = input("Enter a password: ")
 def password_validator():
     while True:
@@ -24,12 +25,11 @@ def password_validator():
 if password_validator():
     print("valid password")
 
-
 # print(password)
-    # if password == password_validator(password):
-    #     print("valid")
-    # elif password != password_validator(password):
-    #     print("Invalid")
+# if password == password_validator(password):
+#     print("valid")
+# elif password != password_validator(password):
+#     print("Invalid")
 
 
 # def password_length(password):
@@ -41,4 +41,3 @@ if password_validator():
 #             print("invalid, try again")
 # password = input("enter a password")
 # password_length(password)
-
