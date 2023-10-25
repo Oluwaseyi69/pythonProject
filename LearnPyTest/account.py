@@ -4,8 +4,9 @@ class Account:
     accountName = None
     pin = None
 
-    def __init__(self, accountNumber, accountName, pin):
-        self.accountNumber = accountNumber
+    def __init__(self, account_number, accountName, pin):
+        self.account_number = account_number
+        # self.accountNumber = accountNumber
         self.accountName = accountName
         self.pin = pin
 
@@ -49,7 +50,7 @@ class Account:
 
     def get_account_number(self):
         # self.validate_account_number(account_number)
-        return self.accountNumber
+        return self.account_number
 
     def validate_account_number(self, account_number):
         if self.accountNumber != account_number:
@@ -58,4 +59,4 @@ class Account:
             return self.accountNumber
 
     def get_account_details(self):
-        return self.accountName + " " + self.accountNumber + " " + self.get_account_number()
+        return f"{self.accountName} {self.accountNumber} {self.get_account_number()}"

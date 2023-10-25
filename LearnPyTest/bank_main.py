@@ -41,11 +41,13 @@ def display():
     elif user_input == "5":
         show_list_of_accounts()
     elif user_input == "6":
-        print(f"""
+        print(
+            """
             #############@@@@@@@@@@@@@@@@@@@@############
                 Thank you for choosing Shebotimo Bank
             #############@@@@@@@@@@@@@@@@@@@@############
-            """)
+            """
+        )
         exit()
     else:
         print("Invalid Entry")
@@ -116,11 +118,13 @@ def enquire():
         if response == 1:
             display()
         elif response == 2:
-            print(f"""
+            print(
+                """
             #############@@@@@@@@@@@@@@@@@@@@############
                 Thank you for choosing Shebotimo Bank
             #############@@@@@@@@@@@@@@@@@@@@############
-            """)
+            """
+            )
             exit()
 
         else:
@@ -197,3 +201,4 @@ def show_list_of_accounts():
 if __name__ == '__main__':
     bank = Bank("Shebotimo Bank", "pin")
     welcome()
+ 

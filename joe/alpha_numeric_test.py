@@ -1,5 +1,5 @@
 import unittest
-from joe.alpha_numeric import
+from joe.alpha_numeric import new_number
 
 
 class AlphaNumeric(unittest.TestCase):
